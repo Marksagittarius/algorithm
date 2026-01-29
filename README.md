@@ -1,2 +1,11 @@
-# algorithm
-Algorithm Notes
+# Algorithm
+
+一本粗糙的基于 `LeetCode` 的算法笔记。
+
+## 目录
+
+### 数组
+
+* [0x00 数组](./0x00_数组.md)
+* [0x01 双指针](./0x01_双指针.md)
+* [0x02 二分](0x02_二分.md)
