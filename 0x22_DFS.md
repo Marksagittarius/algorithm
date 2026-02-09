@@ -163,3 +163,34 @@ public:
     }
 };
 ```
+
+深度优先搜索算法能够被应用于欧拉回路问题：
+
+[332. 重新安排行程](https://leetcode.cn/problems/reconstruct-itinerary/description/)
+
+```c++
+class Solution {
+public: 
+    unordered_map<string, priority_queue<string, vector<string>, greater<string>>> g;
+    vector<string> ans;
+
+    void f(string& s) {
+        while (g.count(s) && g[s].size() > 0) {
+            string t = g[s].top();
+            g[s].pop();
+            f(t);
+        }
+        ans.emplace_back(s);
+    }
+
+    vector<string> findItinerary(vector<vector<string>>& tickets) {
+        for (auto& t : tickets) {
+            g[t[0]].emplace(t[1]);
+        }
+        string s = "JFK";
+        f(s);
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
+```
